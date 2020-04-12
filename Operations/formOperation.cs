@@ -47,7 +47,7 @@ namespace Operations
                         var normalizedObject = obj.SortPropertiesAlphabetically(parsedObject);
 
                         //Create new Json
-                        StreamWriter newJson = new StreamWriter(System.IO.Path.Combine(info.Directory.FullName, $"{info.Name}_Sort"));
+                        StreamWriter newJson = new StreamWriter(Path.Combine(info.Directory.FullName, $"Sort_{info.Name}"));
 
                         //Write sort content alphabetical 
                         newJson.Write(normalizedObject);
@@ -55,6 +55,8 @@ namespace Operations
                         //Approve write
                         newJson.Close();
                     }
+
+                    MessageBox.Show($"number files sorted {files.Length}");
                 }
             }
             catch (Exception ex)
